@@ -1,5 +1,4 @@
 from textnode import TextNode, TextType
-
 from split_node_delimeter import (split_nodes_delimiter, split_nodes_image, split_nodes_link, )
 
 
