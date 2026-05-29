@@ -1,5 +1,6 @@
 import os
 import shutil
+from generate_page import generate_page
 
 def copy_static(source, destination):
     if os.path.exists(destination):
@@ -28,6 +29,11 @@ def copy_static(source, destination):
 
 def main():
     copy_static("static", "public")
+    generate_page(
+        "content/index.md",
+        "template.html",
+        "public/index.html"
+    )
 
 
 if __name__ == "__main__":
