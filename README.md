@@ -12,3 +12,4 @@ The goal of this project is to learn how to:
 - Convert structured data into HTML
 - Write and run unit tests
 - Use Git for version control
+trigger rebuild
