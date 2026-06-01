@@ -1,7 +1,7 @@
 import os
 from generate_page import generate_page
 
-def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
+def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, basepath):
 
     items = os.listdir(dir_path_content)
 
@@ -13,12 +13,13 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
             generate_pages_recursive(
                 full_path,
                 template_path,
-                os.path.join(dest_dir_path, item)
+                os.path.join(dest_dir_path, item),
+                basepath
             )
 
         elif item.endswith(".md"):
 
-            # 🔥 ВАЖНО: директорията е същата, не добавяме повторно името
+         
             os.makedirs(dest_dir_path, exist_ok=True)
 
             dest_path = os.path.join(dest_dir_path, "index.html")
@@ -26,5 +27,6 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
             generate_page(
                 full_path,
                 template_path,
-                dest_path
+                dest_path,
+                basepath
             )
